@@ -1,5 +1,5 @@
-# COURSENAME
-This is the repository for the LinkedIn Learning course `course-name`. The full course is available from [LinkedIn Learning][lil-course-url].
+# Learning Docker Compose: Simplified multi-container application management
+This is the repository for the LinkedIn Learning course `Learning Docker Compose: Simplified multi-container application management`. The full course is available from [LinkedIn Learning][lil-course-url].
 
 ![lil-thumbnail-url]
 
