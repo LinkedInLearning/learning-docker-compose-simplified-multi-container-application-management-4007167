@@ -1,0 +1,8 @@
+services:
+  echo:
+    image: busybox:latest
+    # env_file:
+    #   - ./dev.env
+    # environment:
+    #   - APP_MESSAGE=${APP_MESSAGE:-Hello from Compose}
+    command: ["sh","-c","echo message=$$APP_MESSAGE && sleep 3600"]

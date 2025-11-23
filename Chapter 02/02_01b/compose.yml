@@ -1,0 +1,38 @@
+services:
+  valkey:
+    image: valkey/valkey:7.2-alpine
+    container_name: valkey-server
+    ports:
+      - "6379:6379"
+    volumes:
+      - valkey-data:/data
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  web-app:
+    build: .
+    container_name: page-counter-app
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      valkey:
+        condition: service_healthy
+    environment:
+      - VALKEY_HOST=valkey
+      - VALKEY_PORT=6379
+    restart: unless-stopped
+
+volumes:
+  valkey-data:
+
+networks:
+  app-network:
+    driver: bridge

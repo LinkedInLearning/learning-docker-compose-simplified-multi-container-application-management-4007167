@@ -1,0 +1,19 @@
+services:
+  web:
+    image: nginx:1.27-alpine
+    ports:
+      - "80:80"
+    environment:
+      APP_ENV: "prod"
+      LOG_LEVEL: "warn"
+      ENABLE_METRICS: "true"
+    volumes:
+      - web_content:/usr/share/nginx/html:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost/ || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  web_content: {}

@@ -1,0 +1,16 @@
+{
+  "name": "page-counter-app",
+  "version": "1.0.0",
+  "description": "Simple page counter using Valkey",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "redis": "^4.6.8"
+  },
+  "keywords": ["docker", "valkey", "redis-compatible", "node.js", "counter"],
+  "author": "Your Name",
+  "license": "MIT"
+}

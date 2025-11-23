@@ -1,0 +1,10 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: "dev"
+      LOG_LEVEL: "debug"
+    volumes:
+      - ./site:/usr/share/nginx/html:ro

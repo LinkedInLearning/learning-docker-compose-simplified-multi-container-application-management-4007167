@@ -1,0 +1,34 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    networks:
+      - frontend
+
+  api:
+    image: nginx:alpine
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: appdb
+    networks:
+      backend:
+        ipv4_address: 172.23.0.10
+
+networks:
+  frontend:
+    driver: bridge
+  
+  backend:
+    driver: bridge
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.23.0.0/24

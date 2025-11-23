@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        - APP_TITLE=${APP_TITLE:-My Simple App}
+        - MESSAGE=${MESSAGE:-Hello from Docker Compose!}
+        - COLOR=${COLOR:-blue}
+    container_name: simple-web
+    ports:
+      - "8080:80"

@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: appdb
+    profiles: ["dev", "qa", "prod"]
+
+  adminer:
+    image: adminer:latest
+    ports:
+      - "8080:8080"
+    profiles: ["dev", "qa"]

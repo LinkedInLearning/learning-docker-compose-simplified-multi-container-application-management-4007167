@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        - APP_TITLE=${APP_TITLE:-This is my default webapge}
+        - MESSAGE=${MESSAGE:-Welcome to my website}
+        - COLOR=${COLOR:-red}
+    container_name: buildargs-web
+    ports:
+      - "8080:80"

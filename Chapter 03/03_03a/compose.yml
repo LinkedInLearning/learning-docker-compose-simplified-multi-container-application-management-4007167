@@ -1,0 +1,13 @@
+volumes:
+  volume1: {}
+
+  volume2: {
+    driver: local
+    name: my_volume1
+  }
+
+  volume3: {
+    driver: local
+    name: notmy_volume2
+    external: true
+  }
